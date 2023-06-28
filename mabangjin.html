@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        table { border-collapse: collapse;}
+        td { border:1px solid black; width:50px; height:30px; }  
+    </style>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document)
+    .ready(function(){
+        // 홀수 테이블 만들기
+    while(true) {
+        trtd = prompt('홀수를 입력하시오.');
+        if (trtd%2==0) continue;
+        else break;
+    }
+    let str ='';
+    let std ='';
+
+    for (let x = 0 ; x<trtd ; x++) {
+        std+='<td>'+'</td>'
+    }
+    for (let y = 0 ; y<trtd ; y++) {
+        str+='<tr>'+std+'</tr>'
+    }
+
+    let table ='<table>'+str+'</table>'
+    $('body').append(table);
+
+        // 마방진 만들기
+    let x=$('table tr').length;
+    let y=$('table tr:eq(0)').find('td').length;
+    let startX = x-1, startY = (y-1)/2; 
+
+    for(let num=1; num<=x*y; num++) {
+        $(`table tr:eq(${startX}) td:eq(${startY})`).text(num);
+        startX++; startY--;
+        if (startX==x) {
+            if(startY==-1) {
+                startY=0;
+                startX-=2;
+                continue;
+            }
+            startX = 0;
+            continue;
+        } else if (startY==-1) {
+            startY = y-1;
+            continue;
+        } else if ($(`table tr:eq(${startX}) td:eq(${startY})`).text()!='') {
+            startX-=2;
+            startY++;
+            continue;
+        } else {
+           continue;
+        }
+    }
+    })
+</script>
+</html>
