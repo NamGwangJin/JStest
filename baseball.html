@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baseball</title>
+</head>
+<body>
+    1~9 사이의 숫자 4개를 콤마(,)로 구분지어 입력해주세요.<br><br>
+    <input type="text" id="answer">&nbsp;<input type="button" value="확인" id="ok">
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+let arr = [];
+let ranArray = [];
+$(document)
+.ready(function(){
+    //1~9까지 배열 생성
+    for (ndx=1; ndx<10; ndx++) {
+        arr.push(ndx);
+    }
+    //1~9 랜덤 숫자 4개 생성
+    for (ndx=0; ndx<=3; ndx++) {
+        const index = Math.floor(Math.random() * (arr.length));
+        ranArray.push(arr[index]);
+        arr.splice(index, 1);
+    }
+})
+.on('click','#ok',function(){
+    answer = $('#answer').val().split(',');
+    for (ndx=0; ndx<answer.length; ndx++) {
+        answer.push(answer[ndx].trim());
+    }
+    console.log(answer[0],answer[1],answer[2],answer[3]);
+});
+</script>
+</html>
