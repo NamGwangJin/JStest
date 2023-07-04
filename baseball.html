@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>baseball</title>
 </head>
+<style>
+    div { background-color : yellow ; width : 200px; height : 100px;}
+</style>
 <body>
     1~9 사이의 숫자 4개를 콤마(,)로 구분지어 입력해주세요.<br><br>
-    <input type="text" id="answer">&nbsp;<input type="button" value="확인" id="ok">
+    <div id="count">남은 횟수 : 10회</div><br><br>
+    <input type="text" id="answer">&nbsp;<input type="button" value="확인" id="ok"><br><br>
+    <div id="result" style="height:200px;">결과</div>
 </body>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script>
 let arr = [];
 let ranArray = [];
+let count = 9;
 $(document)
 .ready(function(){
     //1~9까지 배열 생성
@@ -25,21 +31,41 @@ $(document)
         ranArray.push(arr[index]);
         arr.splice(index, 1);
     }
+    console.log(ranArray);
 })
 .on('click','#ok',function(){
     answer = $('#answer').val();
     answer = answer.split(',').map(Number);
-    console.log(ranArray);
+    strike = 0, ball = 0;
     result = "";
     for(randx=0 ; randx<ranArray.length ; randx++) {
         for(andx=0 ; andx<answer.length ; andx++) {
             if (ranArray[randx] == answer[andx]) {
-                result += "strike";
-                break;
+                if (randx == andx) {
+                    strike++;
+                    break;
+                } else {
+                    ball++
+                    break;
+                }
             }
         }
     }
     console.log(result);
+    if(strike == 4) {
+        alert("홈런! 새로 시작하려면 새로고침을 해주세요.");
+    } else {
+        alert(strike+"스트라이크 "+ball+"볼 입니다.");
+        $('#count').html('남은 횟수 : '+count+"회");
+        result += answer.join('')+" : "+strike+"스트라이크 "+ball+"볼<br>";
+        $('#result').html('결과<br>'+result);
+        count--;
+        if (count == 0) {
+            alert("게임 종료! 정답은"+ranArray+"입니다.");
+            alert("새로 시작하려면 새로고침을 해주세요.")
+        }
+    }
 });
+// 추가 개발 필요한 사항 : 잘못된값,중복값 입력시 경고문 출력, 힌트 제공(정답을 포함한 5개 숫자 출력)+버튼
 </script>
 </html>
