@@ -6,7 +6,7 @@
     <title>baseball</title>
 </head>
 <body>
-    1~9 사이의 숫자 4개를 콤마(,)로 구분지어 입력해주세요.1<br><br>
+    1~9 사이의 숫자 4개를 콤마(,)로 구분지어 입력해주세요.<br><br>
     <input type="text" id="answer">&nbsp;<input type="button" value="확인" id="ok">
 </body>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
@@ -27,11 +27,19 @@ $(document)
     }
 })
 .on('click','#ok',function(){
-    answer = $('#answer').val().split(',');
-    for (ndx=0; ndx<answer.length; ndx++) {
-        answer.push(answer[ndx].trim());
+    answer = $('#answer').val();
+    answer = answer.split(',').map(Number);
+    console.log(ranArray);
+    result = "";
+    for(randx=0 ; randx<ranArray.length ; randx++) {
+        for(andx=0 ; andx<answer.length ; andx++) {
+            if (ranArray[randx] == answer[andx]) {
+                result += "strike";
+                break;
+            }
+        }
     }
-    console.log(answer[0],answer[1],answer[2],answer[3]);
+    console.log(result);
 });
 </script>
 </html>
