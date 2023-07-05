@@ -9,21 +9,23 @@
     div { background-color : yellow ; width : 200px; height : 100px;}
 </style>
 <body>
-    1~9 사이의 숫자 4개를 콤마(,)로 구분지어 입력해주세요.<br><br>
-    <div id="count">남은 횟수 : 10회</div><br><br>
+    1~9 사이의 숫자 4개를 입력해주세요.<br><br>
+    <div id="count"></div><br><br>
     <input type="text" id="answer">&nbsp;<input type="button" value="확인" id="ok">
-    <input type="button" value="힌트" id="hint">&nbsp;<input type="button" id="reset" value="리셋"><br><br>
-    <div id="result">결과</div>
+    <input type="button" value="힌트" id="hint" style="display:none">&nbsp;<input type="button" id="reset" value="리셋"><br><br>
+    <div id="result" style="height:200px;">결과</div>
 </body>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script>
 let arr = [];
 let ranArray = [];
 let hintArray = [];
-let count = 9;
+let count = 10;
+let result = "";
 $(document)
 .ready(function(){
     //1~9까지 배열 생성
+    $('#count').html('남은 횟수 : '+count+"회");
     for (ndx=1; ndx<10; ndx++) {
         arr.push(ndx);
     }
@@ -35,13 +37,15 @@ $(document)
         arr.splice(index, 1);
     }
     //힌트 생성
-    hintArray.push(Math.floor(Math.random() * (arr.length)));
+    hintArray.push(arr[Math.floor(Math.random() * (arr.length))]);
+    console.log(hintArray);
+    console.log(ranArray);
 })
 .on('click','#ok',function(){
+    console.log(ranArray);
     answer = $('#answer').val();
-    answer = answer.split(',').map(Number);
+    answer = answer.split('').map(Number);
     strike = 0, ball = 0;
-    result = "";
     if (answer.length!=4) {
         alert("4개의 숫자를 입력해주세요.");
         return;
@@ -83,16 +87,18 @@ $(document)
             }
         }
     }
-    console.log(ranArray);
     if(strike == 4) {
         alert("홈런! 새로 시작하려면 확인을 눌러주세요.");
         location.reload();
     } else {
         alert(strike+"스트라이크 "+ball+"볼 입니다.");
+        count--;
         $('#count').html('남은 횟수 : '+count+"회");
         result += answer.join('')+" : "+strike+"스트라이크 "+ball+"볼<br>";
         $('#result').html('결과<br>'+result);
-        count--;
+        if (count == 5) {
+            $('#hint').show();
+        }
         if (count == 0) {
             alert("게임 종료! 정답은"+ranArray+"입니다. 확인을 누르면 새 게임이 시작됩니다.");
             location.reload();
