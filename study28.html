@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table { border-collapse: collapse;}
+    td { border:1px solid black; width:50px; height:30px; }  
+    .bgNorang { background-color:yellow; color:red;}  
+    div { border:1px solid blue; width:40px; height:40px; }
+</style>
+<body>
+<table>
+    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    //테이블 만들기
+    let tr = prompt('행수를 입력하시오.');
+    let td = prompt('열수를 입력하시오.');
+    let str ='';
+    let std ='';
+
+    for (let x = 0 ; x<td ; x++) {
+        std+='<td>'+'</td>'
+    }
+    for (let y = 0 ; y<tr ; y++) {
+        str+='<tr>'+std+'</tr>'
+    }
+    
+    let table ='<table id=tb>'+str+'</table>'
+    document.write(table);
+
+    // 숫자 순서대로 출력, 스네이크 출력
+    // for (let x=0; x<=4; x++) {
+    //     if (x%2==0) {
+    //         for (let y=0; y<=4; y++) { // 왼쪽에서 오른쪽
+    //             $('table tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+    //         }
+    //     } else {
+    //         for (let y=4; y>=0; y--) { // 오른쪽에서 왼쪽
+    //             $('table tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+    //         }
+    //     }
+    // }
+    // for (let y=0; y<=4; y++) {
+    //     for (x=0; x<=4; x++) { //위에서 아래
+    //         $('table tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+    //     }
+    //     for (x=4; x>=0; x--) { //아래에서 위
+    //         $('table tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+    //     }
+    // }
+
+    //스네일 출력
+    
+    // a=$('table tr').length;
+    // b=$('table tr:eq(0)').find('td').length;
+
+    // let left=0, up=0;
+    // let down=a-1, right=b-1;
+    // let direct='right';
+    // let x=0, y=0, num=1;
+
+    // for (let i=0 ; i<=a*b ; i++) {
+    //     if(direct=='right') {
+    //         for (; y<=right; y++) {
+    //             $('table tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+    //             if(y==right) {
+    //                 direct='down';
+    //                 up++;
+    //                 x++;
+    //                 break;
+    //             }
+    //         }
+    //     } else if(direct=='down') {
+    //         for (; x<=down; x++) {
+    //             $('table tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+    //             if(x==down) {
+    //                 direct='left';
+    //                 right--;
+    //                 y--;
+    //                 break;
+    //             }
+    //         }
+    //     } else if(direct=='left') {
+    //         for (; y>=left; y--) {
+    //             $('table tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+    //             if(y==left) {
+    //                 direct='up';
+    //                 down--;
+    //                 x--;
+    //                 break;
+    //             }
+    //         }
+    //     }else if(direct=='up') {
+    //         for (; x>=up ; x--) {
+    //             $('table tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+    //             if(x==up){
+    //                 direct='right';
+    //                 left++;
+    //                 y++;
+    //                 break;
+    //             }
+    //         }
+    //     }
+    // }
+
+    //스네일
+    let direction='right';
+    let right=tr-1;
+    let down=td-1;
+    let left=0;
+    let up=0;
+    let i=0,j=0;
+    for(k=1; k<=tr*td; k++){
+        $(`table:eq(2) tr:eq(${i}) td:eq(${j})`).text(k);
+        if(direction=='right'){
+            j++;
+            if(j>right){
+                direction='down';
+                j--;
+                i++;
+                up++;
+            }
+        }
+        else if(direction=='down'){
+            i++;
+            if(i>down){
+                direction='left';
+                i--;
+                j--;
+                right--;
+            }
+        }
+        else if(direction=='left'){
+            j--;
+            if(j<left){
+                direction='up';
+                j++;
+                i--;
+                down--;
+            }
+        } 
+        else if(direction=='up'){
+            i--;
+            if(i<up){
+                direction='right';
+                i++;
+                j++;
+                left++;
+            }
+        }
+    }
+
+</script>
+</html>

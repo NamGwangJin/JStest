@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<body>
+    <label id="lblTime" style="background-color: yellow;"></label><br><br>
+    <input type="button" id="btnStart" value="start">&nbsp;
+</body>
+<script>
+    let timeset=null;
+
+    $(document)
+    .on('click',"#btnStart",function(){
+        if ($(this).val()=='start'){
+            timeset=setInterval(function(){
+                $('#lblTime').text(new Date);
+            },1000);
+            $(this).val('stop');
+        } else {
+            if(timeset==null) return;
+            clearInterval(timeset);
+            $('#lblTime').text("setInterval cancelled.");
+            $(this).val('start');
+        }
+    })
+    ;
+</script>
+</html>

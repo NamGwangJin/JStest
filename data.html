@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td:nth-child(1){
+        text-align:right;
+        font-weight:bold;
+    }
+    table {
+        border-collapse:collapse;
+        text-align:center;
+    }
+    td{
+        border:1px solid blue;
+    }
+</style>
+<body>
+    <form action="" method="get">
+        <table>
+            <caption><h1>회원가입</h1></caption>
+            <tr><td>아이디</td><td><input type="text" name="userid" size="12" maxlength="12" autofocus></td></tr>
+            <tr><td>비밀번호</td><td><input type="password" name="password" size="12" maxlength="12"></td></tr>
+            <tr><td>비밀번호 확인</td><td><input type="password" name="password1" size="12" maxlength="12"></td></tr>
+            <tr><td>실명</td><td><input type="text" name="realname" size="12" maxlength="12"></td></tr>
+            <tr><td>전화번호</td><td><input type="phone" name="mobile" size="16" maxlength="16"></td></tr>
+            <tr><td>성별</td><td><input type="radio" name="gender" value="male" checked>남
+                <input type="radio" name="gender" value="female">여</td></tr>
+
+            <tr><td>지역</td>
+                <td><select name="region" size="4">
+
+                <option value="ilsan_east" selected>일산동구</option>
+                <option value="islan_west">일산서구</option>
+                <option value="deokyang">덕양구</option>
+                </select></td>
+            </tr>
+
+                <tr><td>사진업로드</td><td><input type="file"></td></tr>
+            <tr><td colspan="2" style="text-align:center"><input type="submit" value="전송">&nbsp;
+                <input type="reset" value="비우기"></td></tr>
+        </table><br><br>
+        <input type="button" onclick="showCircle()" value="원 생성하기"><br><br>
+        <canvas id="cnv" style="width:500px;height:300px;border:1px solid red;" ></canvas>
+    </form>
+</body>
+<script>
+    function showCircle(){
+        var c=document.getElementById("cnv");
+        var ctx=c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+</script>
+</html>

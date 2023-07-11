@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckBox</title>
+</head>
+<body>
+    <input type="checkbox" name="fruit" value="참외" onclick="display()">참외
+    <input type="checkbox" name="fruit" value="수박" onclick="display()">수박
+    <input type="checkbox" name="fruit" value="멜론" onclick="display()">멜론<br>
+    <input type="checkbox" name="fruit" value="사과" onclick="display()">사과
+    <input type="checkbox" name="fruit" value="포도" onclick="display()">포도
+    <input type="checkbox" name="fruit" value="딸기" onclick="display()">딸기<br><br>
+    <div id="dvResult" style="width: 200px;height: 100px;border: 1px solid black;"></div>
+</body>
+<script>
+function display(){
+    let pStr='';
+    for(let i=0; i<document.getElementsByName("fruit").length; i++){
+        if(document.getElementsByName("fruit")[i].checked){
+            if(pStr!="") pStr+=",";
+            pStr+=document.getElementsByName("fruit")[i].value;
+        }
+    }
+    document.getElementById("dvResult").innerHTML=pStr;
+}
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name1">
+    <br><br>
+    <label id="lblName1"></label>
+    <br><br>
+    <input type="button" id="btnMove" value="Move">
+    <br><br>
+    <div id="dvStyle"></div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document)
+    .on('click','#btnMove',function(){
+        $("#lblName1").text($('#name1').val());
+        $('#lblName1').css({'background-color':'yellow','color':'red','border':'1px solid green'});
+        $('#name1').val('');
+
+        $('#dvStyle').css({'background-color':'aqua','border':'1px dashed blue','color':'red'});
+        $('#dvStyle').css('font-size','20px');
+        str = $('#lblName1').css('background-color')+'<br>';
+        str += $('#lblName1').css('border')+'<br>';
+        str += $('#lblName1').css('color');
+        $('#dvStyle').html(str);
+    })
+</script>
+</html>

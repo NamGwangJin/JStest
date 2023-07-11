@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="selCountry" size="7">
+    <option>korea</option>
+    <option>USA</option>
+    <option>Canada</option>
+    <option>Singapore</option>
+    </select>
+    <br><br>
+    <input type="button" id="btnGo" value="getCountry">
+    <input type="button" id="btnSet" value="setCounrty">
+    <br><br>
+    <div id="dvResult" style="width:200px;height:200px;border: 1px solid blue;"></div>
+</body>
+<script>
+document.getElementById("btnGo").addEventListener('click',doSelect);
+document.getElementById("btnSet").addEventListener('click',doSet);
+    function doSelect(){
+        if(document.getElementById("selCountry").value==''){
+            alert("나라를 선택하세요.")
+        } else {
+            document.getElementById("dvResult").innerHTML=document.getElementById("selCountry").value;
+        }
+    }
+    function doSet(){
+        let s = prompt("나라 이름을 입력하시오");
+        if (s==null || s=='') {
+            alert("입력되지 않았습니다.")
+        } else {
+            s = "<option>"+s+"</option>";
+            document.getElementById("selCountry").innerHTML+=s;
+        }
+    }
+</script>
+</html>

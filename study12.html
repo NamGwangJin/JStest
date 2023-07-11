@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div { width:200px; height: 200px; border: 1px solid black;}
+    .bgYellow { background-color: yellow;}
+    .bgWhite { background-color: white;}
+    .bdRed { border: 1px solid red;}
+</style>
+<body>
+    <button id="btnChange">change</button>
+    <div id="divFirst"></div>
+    <div id="divSecond"></div>
+</body>
+<script>
+    document.getElementById('btnChange').addEventListener('click',function(){
+        let interval = setInterval(function(){
+            let now = new Date();
+            if(now.getSeconds()%2==0){
+                show(doFirst);
+            } else {
+                show(doSecond);
+            }
+        },1000);
+    })
+
+    function doFirst(){
+        document.getElementById('divFirst').className='bgYellow';
+        document.getElementById('divFirst').style='background-color:yellow;';
+        document.getElementById('divFirst').style+='color:red;';
+        document.getElementById('divSecond').className='bgWhite';
+        document.getElementById('divSecond').className+=' bdRed';
+    }
+    function doSecond(){
+        document.getElementById('divFirst').className='bgWhite';
+        document.getElementById('divSecond').className='bgYellow';
+    }
+    function show(callBack) {
+        callBack();
+    }
+</script>
+</html>

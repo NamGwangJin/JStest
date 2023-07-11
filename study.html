@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<style>
+    table { border-collapse: collapse; background-color: burlywood;}
+    td:nth-child(1) { text-align:right; font-weight: bold;}
+    label { background-color: yellow; color:red; display:none;}
+</style>    
+<body>
+    <label id="lblAlert"></label>
+    <table>
+        <caption style="font-family: monospace; font-weight: bolder;">회원가입</caption>
+        <tr><td>사용자 아이디</td><td><input type=text id=userid name=userid size=12></td></tr>    
+        <tr><td>비밀번호</td><td><input type=password id=passcode name=passcode size=12></td></tr>
+        <tr><td>비밀번호 확인</td><td><input type=password id=passcode1 name=passcode1 size=12><input type="button" id="pwCheck" value="확인"></td></tr>
+        <tr><td>실명</td><td><input type=text id=name name=name size=12></td></tr>
+        <tr><td>성별</td><td><input type=radio id=male name=gender value="남성">남<input type=radio id=female name=gender value="여성">여</td></tr>
+        <tr><td>생년월일</td><td><input type=date id=birthday name=birthday></td></tr>
+        <tr><td>모바일</td><td><input type=text id=mobile name=mobile size=16></td></tr>
+        <tr><td>거주지역</td><td>
+            <select id="selRegion" name="selRegion" size="6">
+            <option>서울시</option>
+            <option>고양시</option>
+            <option>파주시</option>
+            <option>김포시</option>
+            <option>기타</option>
+            </select>
+        </td></tr>
+        <tr><td>게임선택</td><td>
+            <input type="checkbox" id="lol" name="game" value="League Of Legend">리그오브레전드
+            <input type="checkbox" id="starcraft2" name="game" value="starcraft2">스타크래프트2
+            <input type="checkbox" id="overwatch" name="game" value="overwatch">오버워치<br>
+            <input type="checkbox" id="tarkov" name="game" value="tarkov">타르코프
+            <input type="checkbox" id="SimulatorX" name="game" value="simulatorx">시뮬레이터X
+            <input type="checkbox" id="EuroTruck" name="game" value="eurotruck">유로트럭<br>
+            <input type="checkbox" id="WOT" name="game" value="World Of Tank">월드오프탱크
+            <input type="checkbox" id="DongSoup" name="game" value="AnimalForest">동물의숲
+            <input type="checkbox" id="BattleGround" name="game" value="BattleGround">배틀그라운드
+        </td></tr>
+        <tr><td colspan="2" style="text-align:center"><input type=button id=btnCheck value="확인"></td></tr>
+        <tr><td colspan="2" style="text-align:left"><div id=dvCheck style="width:500px;height:300px;background-color:beige;border:1px solid brown; text-align:center; font-weight:bold;">입력된 정보</div></td></tr>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script src="studyscript.js">
+// document.getElementById("check").addEventListener('click',function(){
+//     if (document.getElementById("passcode").value!=document.getElementById("passcode1").value) {
+//         alert("비밀번호가 일치하지 않습니다.");
+//         return;
+//     } else if (document.getElementById("passcode").value=='' || document.getElementById("passcode1").value=='') {
+//         alert("비밀번호가 입력되지 않았습니다.");
+//         return;
+//     }else {
+//         alert("비밀번호가 일치합니다.");
+//         nPw = document.getElementById("passcode").value;
+//     }
+// })
+
+// document.getElementById("btnCheck").addEventListener('click',function(){
+//     let nId='', nPw='', nName='', nGen='', nMobile='', nRegion='', nGame='', ndx=0;
+
+//     if (document.getElementById("userid").value=='') {
+//         alert("아이디가 입력되지 않았습니다.");
+//         return false;
+//     } else {
+//         nId = document.getElementById("userid").value;
+//     }
+    
+//     if (document.getElementById("passcode").value!=document.getElementById("passcode1").value) {
+//         alert("비밀번호가 일치하지 않습니다.");
+//         return;
+//     } else if (document.getElementById("passcode").value=='' || document.getElementById("passcode1").value=='') {
+//         alert("비밀번호가 입력되지 않았습니다.");
+//         return;
+//     }else {
+//         nPw = document.getElementById("passcode").value;
+//     }
+
+//     if (document.getElementById("name")==''){
+//         alert("실명이 입력되지 않았습니다.");
+//         return;
+//     } else {
+//         nName = document.getElementById("name").value;
+//     }
+
+//     if (document.getElementById("birthday").value=='') {
+//         alert("생년월일이 선택되지 않았습니다.");
+//         return;
+//     } else {
+//         nDay = document.getElementById("birthday").value;
+//     }
+
+//     if (document.getElementById("male").checked) {
+//         nGen = "남성";
+//     } else if (document.getElementById("female").checked) {
+//         nGen = "여성";
+//     } else {
+//         alert("성별이 선택되지 않았습니다.");
+//         return;
+//     }
+
+//     if (document.getElementById("mobile").value=='') {
+//         alert("모바일 번호가 입력되지 않았습니다.");
+//         return;
+//     } else {
+//         nMobile = document.getElementById("mobile").value;
+//     }
+
+//     if (document.getElementById("selRegion").value=='') {
+//         alert("거주지역이 선택되지 않았습니다.");
+//         return;
+//     } else {
+//         nRegion = document.getElementById("selRegion").value;
+//     }
+
+//     for (ndx = 0 ; ndx<document.getElementsByName("game").length ; ndx++){
+//         if(document.getElementsByName("game")[ndx].checked) {
+//             if(nGame!='') nGame+=",";
+//             nGame+=document.getElementsByName("game")[ndx].value;
+//         }
+//     }
+
+//     if (nGame=='') {
+//         alert("선택된 게임이 없습니다.");
+//         return;
+//     } else {
+//         document.getElementById("dvCheck").innerHTML = 'ID : ' + nId + '<br> PASSWORD : ' + nPw +
+//                                                    '<br>실명 : ' + nName + '<br> 생년월일 : ' + nDay +
+//                                                    '<br>성별 : ' + nGen + '<br> 모바일 번호 : '+ nMobile +
+//                                                    '<br>거주지역 : '+ nRegion + '<br> 선택된 게임 : ' + nGame;
+//     }
+// });
+</script>
+</html>

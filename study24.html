@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        background-color:yellow; border:2px solid black; height:200px; width:200px;
+    }
+</style>
+<body>
+    <select id="selMenu" multiple size="10" style="width:200px;">
+        <option value="lily">백합</option>
+        <option value="rose">장미</option>
+        <option value="sunflower">해바라기</option>
+        <option value="cockscomb">맨드라미</option>
+        <option value="forsythia">개나리</option>
+        <option value="peony">모란</option>
+        <option value="daffodil">수선화</option>
+    </select>
+    <br><br>
+    <input type="text" id="name"><input type="button" id="btnAppend" value="추가">
+    <br><br>
+    <input type="text" id="name1"><input type="button" id="btnGet" value="선택값">
+    <div id="dvDisplay"></div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document)
+    .ready(function(){
+
+    })
+    .on('click','#btnAppend',function(){
+        let str='<option>'+$('#name').val()+'</option>';
+        // $('#selMenu').append(str);
+        $('#selMenu').prepend(str);
+        $('#name').val('');
+        $('#name').focus();
+    })
+    .on('click','#btnGet',function(){
+        let str=$('#selMenu').val();
+        // let sel='선택된 값<br>';
+
+        // single:선택된 option의 value문자열
+        // multiple: 선택된 옵션들의 value를 배열로 반환
+
+        // for (let ndx=0; ndx<str.length; ndx++){
+        //     sel+= str[ndx]+'<br>';
+        // }
+        // $('#dvDisplay').html(sel);
+
+        // for (let ndx in str) {
+        //     sel += str[ndx]+'<br>';
+        // }
+        // $('#dvDisplay').html(sel);
+
+        // for (let ndx of str) {
+        //     sel += ndx+'<br>';
+        // }
+        // $('#dvDisplay').html(sel);
+
+        // let op = str.join('<br>');
+        // $('#dvDisplay').html(op);
+        
+        str='';
+        $('#selMenu option:selected').each(function(){
+            str+=$(this).val()+'<br>';
+        })
+        $('#dvDisplay').html(str);
+    })
+</script>
+</html>

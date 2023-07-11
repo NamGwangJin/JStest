@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="button" id="btnGo" value="changeText">
+   <br>
+   <input type="button" id="btnClear" value="Clear DIV">
+   <br><br>
+   <input type="text" id="userid" value="World"><br><br>
+   <div id="dvDisplay" style="width:200px;height:100px;background-color: yellow;border:1px solid black;"></div>
+   <label id="lbl">World</label><br>
+   <textarea id="txt">World</textarea>
+</body>
+<script>
+document.getElementById("btnGo").onclick=function(){
+    document.getElementById("userid").value="good Morning";
+    document.getElementById("dvDisplay").innerHTML='<select size=4><option>korea</option><option>USA</option><option>singapore</option></select>'
+    document.getElementById("lbl").innerHTML="Good Evening";
+    document.getElementById("txt").value="Good Night";
+}
+document.getElementById("btnClear").onclick=function(){
+    document.getElementById("userid").value="";
+    document.getElementById("dvDisplay").innerHTML='';
+    document.getElementById("lbl").innerHTML='';
+    document.getElementById("txt").value='';
+}
+</script>
+</html>

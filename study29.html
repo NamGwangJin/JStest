@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table { border-collapse: collapse; }
+    td { border:solid 1px black; }
+</style>
+<body>
+    <button id="btnAdd">메뉴추가</button>&nbsp;<input size="3" min="1" type="number" id="rownum">&nbsp;<button id="btnRemove">메뉴삭제</button>
+    <br><br>
+    <table id="tblMenu"></table>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document)
+    .on('click','#btnAdd',function(){
+        let menu = prompt('메뉴명을 입력하시오.');
+        if(menu!=''&& menu!=null) {
+            let addMenu = '<tr><td>'+menu+'</td></tr>'
+            $('#tblMenu').append(addMenu);
+        }
+    })
+    .on('click','#btnRemove',function(){
+        let x = $('#rownum').val();
+        if (x=='') return false;
+        $('#tblMenu').find('tr:eq('+(x-1)+')').remove();
+        $('#rownum').val('').focus();
+    })
+</script>
+</html>

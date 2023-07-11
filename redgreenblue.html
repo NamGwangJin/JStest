@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width:200px; height:200px;
+        border:1px solid black;
+    }
+    td { text-align:center;}
+</style>
+<body>
+<table>
+    <tr>
+        <td><div id="dvRed"></div></td>
+        <td><div id="dvGreen"></div></td>
+        <td><div id="dvBlue"></div></td>
+    </tr>
+    <tr>
+        <td><input type="button" id="btnRed" value="빨강"></td>
+        <td><input type="button" id="btnGreen" value="녹색"></td>
+        <td><input type="button" id="btnBlue" value="파랑"></td>
+    </tr>
+</table>
+</body>
+<script>
+
+document.getElementById("btnRed").addEventListener('click',function(){
+    document.getElementById("dvRed").style="background-color:red;";
+    setTimeout(RedOtherDiv, 1000);
+});
+
+document.getElementById("btnGreen").addEventListener('click',function(){
+    document.getElementById("dvGreen").style="background-color:green;";
+    setTimeout(GrOtherDiv, 1000);
+});
+
+document.getElementById("btnBlue").addEventListener('click',function(){
+    document.getElementById("dvBlue").style="background-color:blue;";
+    setTimeout(BlueOtherDiv, 1000);
+});
+
+function RedOtherDiv(){
+    document.getElementById("dvGreen").style='background-color:white';
+    document.getElementById("dvBlue").style='background-color:white';
+};
+
+function GrOtherDiv(){
+    document.getElementById("dvBlue").style='background-color:white;';
+    document.getElementById("dvRed").style='background-color:white;';
+};
+
+function BlueOtherDiv(){
+    document.getElementById("dvGreen").style='background-color:white;';
+    document.getElementById("dvRed").style='background-color:white;';
+};
+
+
+</script>
+</html>

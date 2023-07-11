@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="radio" name="country" id="sg" value="Singapore">Singapore<br>
+    <input type="radio" name="country" id="vt" value="Vietnam">Vietnam<br>
+    <input type="radio" name="country" id="ca" value="Canada">Canada<br>
+    <input type="radio" name="country" id="th" value="Thailand">Thailand<br><br><br>
+    <input type="checkbox" name="favorite" value="IVE">아이브<br>
+    <input type="checkbox" name="favorite" value="NewJeans">뉴진스<br>
+    <input type="checkbox" name="favorite" value="Blackpink">블랙핑크<br>
+    <input type="checkbox" name="favorite" value="Fiftyfifty">피프티피프티<br>
+    <input type="checkbox" name="favorite" value="stacyC">스테이씨<br>
+    <input type="checkbox" name="favorite" value="girlIdle">아이들<br>
+    <input type="checkbox" name="favorite" value="Aespa">에스파<br>
+    <input type="checkbox" name="favorite" value="Twice">트와이스<br><br><br>
+    <textarea id="txtComment" cols="30" rows="10"></textarea>
+    <br><br><br>
+    <div id="dvDisplay"></div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document)
+    .ready(function(){
+        $('#txtComment').val('경기도 고양시 일산서구 정발산로\n 43-20 센트럴프라자 407호')
+    })
+    .on('change blur click','#txtComment',function(){
+        let str = $('#txtComment').val();
+        $('#dvDisplay').text(str);
+    })
+    .on('click','[name=favorite]',function(){
+        let str='';
+
+        // for (let i=0; i<$('[name=favorite]').length; i++){
+        //     if ($('[name=favorite]:eq('+i+')').is(':checked')) {
+        //         str+=$('[name=favorite]:eq('+i+')').val()+'<br>';
+        //     }
+        // }
+
+        // for (let i=0; i<$('[name=favorite]:checked').length; i++){
+        //     str+=$('[name=favorite]:checked').eq(i).val()+'<br>';
+        // }
+
+        // $('[name=favorite]:checked').each(function(){
+        //     str+=$(this).val()+'<br>';
+        // })
+        // $('#dvDisplay').html(str);
+
+        $.each($('[name=favorite]:checked'),function(){
+            str+=$(this).val()+'<br>';
+        })
+        $('#dvDisplay').html(str);
+    })
+
+    .on('click','[name=country]',function(){
+        let str=$(this).val();
+        $('#dvDisplay').text(str);
+    })
+    // .on('click','#sg,#vt,#ca,#th',function(){
+    //     let str=$(this).val();
+    //     $('#dvDisplay').text(str);
+    // })
+</script>
+</html>

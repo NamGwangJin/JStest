@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table { border-collapse: collapse;}
+    td { border:1px solid black; width:50px; height:30px; }  
+    .bgNorang { background-color:yellow; color:red;}  
+    div { border:1px solid blue; width:40px; height:40px; }
+</style>
+<body>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+.ready(function(){
+    // 테이블 생성
+    let tr = prompt('행수를 입력하시오.');
+    let td = prompt('열수를 입력하시오.');
+    let str ='';
+    let std ='';
+    let num =1;
+
+    for (let x = 0 ; x<td ; x++) {
+        std+='<td>'+'</td>'
+    }
+    for (let y = 0 ; y<tr ; y++) {
+        str+='<tr>'+std+'</tr>'
+    }
+    let table ='<table>'+str+'</table>'
+
+    $('body').append(table+'<br><br>'+table+'<br><br>'+table);
+
+    // 지그재그
+    for (let x=0; x<tr; x++) {
+        for (let y=0; y<td; y++) {
+                $('table:eq(0) tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+        }
+    }
+
+    // 스네이크
+    num=1;
+    for (let x=0; x<tr; x++) {
+        if (x%2==0) {
+            for (let y=0; y<td; y++) {
+                $('table:eq(1) tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+            }
+        } else {
+            for (let y=td-1; y>=0; y--) {
+                $('table:eq(1) tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+            }
+        }
+    }
+
+    //스네일
+    let left=0, up=0;
+    let down=tr-1, right=td-1;
+    let direct='right';
+    let x=0, y=0;
+    num=1;
+
+    for (let i=0; i<=tr*td ; i++) {
+        if(direct=='right') {
+            for (; y<=right; y++) {
+                $('table:eq(2) tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+                if(y==right) {
+                    direct='down';
+                    up++;
+                    x++;
+                    break;
+                }
+            }
+        } else if(direct=='down') {
+            for (; x<=down; x++) {
+                $('table:eq(2) tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+                if(x==down) {
+                    direct='left';
+                    right--;
+                    y--;
+                    break;
+                }
+            }
+        } else if(direct=='left') {
+            for (; y>=left; y--) {
+                $('table:eq(2) tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+                if(y==left) {
+                    direct='up';
+                    down--;
+                    x--;
+                    break;
+                }
+            }
+        }else if(direct=='up') {
+            for (; x>=up ; x--) {
+                $('table:eq(2) tr:eq('+x+')').find('td:eq('+y+')').text(num++);
+                if(x==up){
+                    direct='right';
+                    left++;
+                    y++;
+                    break;
+                }
+            }
+        }
+    }
+})
+
+
+
+</script>
+</html>

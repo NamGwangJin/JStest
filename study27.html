@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+table { border-collapse: collapse;}
+td { border:1px solid black; width:50px; height:30px; }  
+.bgNorang { background-color:yellow;}
+div { border:1px solid blue; width:40px; height:40px; }
+</style>
+<body>
+    <table>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <br><br>
+    <div></div><div></div><div></div><div></div><div></div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)    
+.ready(function(){
+    // $('table tr:eq(3)').addClass('bgNorang');
+    // $('table tr:eq(3) td:eq(1)').css('background-color','pink');
+    // $('table tr:gt(3)').css('background-color','aqua');
+    // $('table tr:lt(2)').css('background-color','magenta');
+    // $('table tr:lt(2) td').text('Rain');
+    // $('div:eq(3)').html('<input type=button value=hello>');
+    // $('div:not(div:eq(3))').html('<input type=button value=not>');
+
+    // $('table tr:odd').css('background-color','brown');
+    // $('table tr:even').css('background-color','gray');
+    // $('div:odd').css('background-color','brown');
+    // $('div:even').css('background-color','gray');
+
+    
+    // $('table tr:lt(4)').find('td:lt(3)').css('background-color','yellow');
+    // $('table tr:lt(4)').find('td:gt(2)').css('background-color','blue');
+    // $('table tr:gt(3)').find('td:lt(3)').css('background-color','aqua');
+    // $('table tr:gt(3)').find('td:gt(2)').css('background-color','gray');
+
+    // for (let ndx=0; ndx<4; ndx++) {
+    //     str='table tr:eq('+ndx+') td:lt(3)';
+    //     $(str).css('background-color','yellow');
+    //     str='table tr:eq('+ndx+') td:gt(2)';
+    //     $(str).css('background-color','blue');
+    // }
+    // for (let ndx=4; ndx<8; ndx++) {
+    //     str='table tr:eq('+ndx+') td:lt(3)';
+    //     $(str).css('background-color','aqua');
+    //     str='table tr:eq('+ndx+') td:gt(2)';
+    //     $(str).css('background-color','gray');
+    // }
+
+    // $('table tr:first').css('background-color','green');
+    // $('table tr:last').css('background-color','pink');
+})
+</script>
+</html>

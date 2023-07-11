@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width:200px; height:200px;
+        border:1px solid black;
+    }
+    td { text-align:center;}
+</style>
+<body>
+<table>
+    <tr>
+        <td><div id="dvRed"></div></td>
+        <td><div id="dvGreen"></div></td>
+        <td><div id="dvBlue"></div></td>
+    </tr>
+    <tr>
+        <td><input type="button" id="btnStart" value="시작"></td>
+        <td><input type="button" id="btnStop" value="정지"></td>
+        <td><input type="button" id="btnClear" value="비우기"></td>
+    </tr>
+</table>
+</body>
+<script>
+
+let interval = null, timeout = null;
+
+// document.getElementById("btnStart").addEventListener('click',function(){
+//     document.getElementById("btnStart").style='display:none;';
+//     document.getElementById("dvRed").style='background-color:white;';
+//     document.getElementById("dvGreen").style='background-color:white;';
+//     document.getElementById("dvBlue").style='background-color:white;';
+//     timeout = setTimeout(function(){
+//         document.getElementById("dvRed").style='background-color:red;';
+//     },0);
+
+//     timeout = setTimeout(function(){
+//         document.getElementById("dvRed").style='background-color:white;';
+//         document.getElementById("dvGreen").style='background-color:green;';
+//     },1000);
+
+//     timeout = setTimeout(function(){
+//         document.getElementById("dvGreen").style='background-color:white;';
+//         document.getElementById("dvBlue").style='background-color:blue;';
+//     },2000);
+
+//     interval = setInterval(function(){
+//         timeout = setTimeout(function(){
+//             document.getElementById("dvRed").style='background-color:red;';
+//             document.getElementById("dvBlue").style='background-color:white;';
+//         },0);
+//         timeout = setTimeout(function(){
+//             document.getElementById("dvRed").style='background-color:white;';
+//             document.getElementById("dvGreen").style='background-color:green;';
+//         },1000);
+//         timeout = setTimeout(function(){
+//             document.getElementById("dvGreen").style='background-color:white;';
+//             document.getElementById("dvBlue").style='background-color:blue;';
+//         },2000);
+//     },3000);
+// });
+
+let flag=0;
+document.getElementById("btnStart").addEventListener('click',function(){
+    document.getElementById("btnStart").style='display:none;';
+    interval = setInterval(function(){
+        if (flag%3==0) {
+            document.getElementById("dvRed").style='background-color:red';
+            document.getElementById("dvGreen").style='background-color:white';
+            document.getElementById("dvBlue").style='background-color:white;';
+        }else if (flag%3==1) {
+            document.getElementById("dvRed").style='background-color:white';
+            document.getElementById("dvGreen").style='background-color:green';
+            document.getElementById("dvBlue").style='background-color:white';
+        }else if (flag%3==2) {
+            document.getElementById("dvRed").style='background-color:white';
+            document.getElementById("dvGreen").style='background-color:white';
+            document.getElementById("dvBlue").style='background-color:blue';
+        }
+        flag++;
+    },1000);
+});
+
+document.getElementById("btnStop").addEventListener('click',function(){
+    if (timeout==null && interval==null) {
+        alert("작업이 실행되지 않았습니다.");
+        return;
+    }
+    clearInterval(interval);
+    clearTimeout(timeout);
+    document.getElementById("btnStart").style='display:content;';
+    return;
+});
+
+document.getElementById("btnClear").addEventListener('click',function(){
+    if (timeout==null && interval==null) {
+        alert("작업이 실행되지 않았습니다.");
+        return;
+    }
+    document.getElementById("dvRed").style='background-color:white;';
+    document.getElementById("dvGreen").style='background-color:white;';
+    document.getElementById("dvBlue").style='background-color:white;';
+    document.getElementById("btnStart").style='display:content;';
+    flag=0;
+    return;
+});
+
+</script>
+</html>

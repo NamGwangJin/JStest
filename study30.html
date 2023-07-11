@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtName">
+    <br><br>
+    <input type="button" id="btnGo" value="Go">
+    <br><br>
+    <label id="lblName" style="background-color: yellow;width:100px;height:100px;"></label>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document)
+    .on('click','#btnGo',function(e,u){
+        $('#lblName').text($('#txtName').val());
+    })
+    .on('keydown','#txtName',function(e,u){
+        console.log(e.key);
+        console.log('which:'+e.which);
+        if(e.which==13) { // 엔터키를 눌렀을때
+            $('#btnGo').trigger('click');
+        }
+    })
+
+    // mouseleave,mouseenter
+</script>
+</html>

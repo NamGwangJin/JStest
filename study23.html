@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width:200px;height:300px;border:1px solid blue;
+        background-color:yellow;
+    }
+</style>
+<body>
+    사용자아이디:<input type="text" id="userid"><br>
+    비밀번호:<input type="password" id="passcord"><br>
+    생년월일:<input type="date" id="birthday"><br>
+    나이:<input type="number" id="age"><br>
+    <input type="hidden" id="bunji" value="1004"><br><br>
+    <input type="button" id="btnGet" value="show info"><br><br>
+    <div id="dvDisplay"></div>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document)
+    .ready(function(){
+        // setter
+        $('#userid').val('etoile');
+        $('#passcord').val('himedia');
+        $('#birthday').val('2023-06-13');
+        $('#age').val(25);
+        $('#bunji').val(1004);
+        $('#dvDisplay').text('공백');
+    })
+    .on('click','#btnGet',function(){
+        // getter
+        let str='사용자아이디:'+$('#userid').val()+'<br>';
+        str+='비밀번호:'+$('#passcord').val()+'<br>';
+        str+='생년월일:'+$('#birthday').val()+'<br>';
+        str+='나이:'+$('#age').val()+'<br>';
+        str+='번지:'+$('#bunji').val()+'<br>';
+        $('#dvDisplay').html(str);
+    })
+</script>
+</html>

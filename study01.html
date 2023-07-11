@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label id="lblTime" style="background-color: yellow;"></label><br><br>
+    <input type="button" id="btnStart" value="start">&nbsp;
+    <input type="button" id="btnStop" value="stop" style="display: none;">
+</body>
+<script>
+
+let timeset = null;
+
+document.getElementById("btnStart").addEventListener('click',function(){
+    alert("2초 뒤 화면에 출력됩니다.");
+    timeset = setTimeout(showNow, 2000);
+    document.getElementById("btnStop").style='display:block;';
+});
+
+function showNow(){
+    let now = new Date();
+    let pstr = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
+    document.getElementById("lblTime").innerText = pstr;
+    document.getElementById("btnStop").style='display:none';
+};
+
+document.getElementById("btnStop").addEventListener("click",function(){
+    if(timeset==null) {
+        alert("타이머가 시작되지 않았습니다.");
+        return;
+    }
+    clearTimeout(timeset);
+    document.getElementById("lblTime").innerText="setTimeout canceled.";
+});
+
+</script>
+</html>

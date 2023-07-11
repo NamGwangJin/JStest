@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+table { border-collapse: collapse;}
+td { border:1px solid black; width:50px; height:30px; }  
+.bgNorang { background-color:yellow;}  
+div {
+    border:1px solid blue; width:40px; height: 40px;
+}
+</style>
+<body>
+    
+     <table id="table">
+           
+        </table>
+
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+  $(document)
+.ready(function(){
+    let row, col;
+    while (true) {
+        row = parseInt(prompt("홀수를 입력하세요."));
+         if (row % 2 !== 0) {
+            col = row;
+            for (let i = 0; i < row; i++) {
+                let tr = $('<tr></tr>');
+                for (let j = 0; j < col; j++) {
+                    let td = $('<td></td>');
+                    tr.append(td);
+                }
+                $('#table').append(tr);
+            }
+            break; 
+        } else {
+            prompt("홀수가 아닙니다. 홀수를 입력하세요.");
+        }
+    }
+        let num=1;
+        let moverow =row-1;
+        let movecol =(col-1)/2;
+        while(num<=row*col){
+            $('table tr:eq('+moverow+') td:eq('+movecol+')').text(num);
+            moverow++;
+            movecol--;
+            num++;
+            if (moverow==row){
+                if(movecol==-1) {
+                    movecol=0;
+                    moverow-=2;
+                    continue;
+                }
+                moverow = 0;
+                continue;
+            } else if (movecol==-1) {
+                movecol = col-1;
+                continue;
+            } else if ($('table tr:eq('+moverow+') td:eq('+movecol+')').text()!=''){
+                moverow-=2;
+                movecol++;
+                continue;
+            } else {
+                continue;
+            }
+        }
+   
+});
+</script>
+</body>
+</html>

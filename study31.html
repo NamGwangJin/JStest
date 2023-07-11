@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <input type="button" id="btnShow" value="show dialog">
+    <br><br>
+    <div id="dvCopy"></div>
+    <div id="dvDialog" style="display:none">
+        <input type="text" id="txtName">
+        <br><br>
+    </div>
+</body>
+<script>
+    $(document)
+    .ready(function(){
+        $('#dvDialog').dialog({
+            autoOpen:false,
+            modal:true,
+            buttons: [
+                {
+                    text: "Ok",
+                    icon: "ui-icon-heart",
+                    click: function(){
+                        $('#dvCopy').text($('#txtName').val());
+                        $('#txtName').val('');
+                        $(this).dialog('close');
+                    }
+                },
+                {
+                    text: 'Close',
+                    click: function(){
+                        $('#txtName').val('');
+                        $(this).dialog('close');
+                    }
+                }
+            ]
+        });
+    })
+    .on('click','#btnShow',function(){
+        $('#dvDialog').dialog("open");
+    })
+</script>
+</html>

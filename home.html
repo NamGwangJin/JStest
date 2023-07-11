@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home.html</title>
+</head>
+<style>
+    table {
+        border-collapse:collapse;
+    }
+    td,th {
+        text-align: center;
+        border:1px solid black;
+    }
+    th {
+        background-color: yellowgreen;
+    }
+    #tbl td{
+        width:50px;
+        text-align:center;
+    }
+    #tbl tr:nth-child(even){
+        background-color:aquamarine;
+    }
+    #tbl tr:nth-child(odd) {
+        background-color:yellow;
+    }
+</style>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th style="width:100px;">이름</th>
+                <th style="width:80px;">생년월일</th>
+                <th style="width:80px;">거주지역</th>
+                <th ssyle="width:80px;">사무실</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td><td rowspan="2">0524</td><td colspan="2">Busan</td>
+            </tr>
+            <tr>
+                <td>Jane</td><td>Seoul</td><td>Ilsan</td>
+            </tr>
+            <tr>
+                <td rowspan="2">James</td><td>1212</td><td colspan="2">choenan</td>
+            </tr>
+            <tr>
+                 <td rowspan="2">0308</td><td rowspan="2">Ilsan</td><td>Seoul</td>
+            </tr>
+            <tr>
+                <td>Jason</td><td>Incheon</td>
+            </tr>
+        </tbody>
+    </table>
+    <table id="tbl">
+        <caption>알파벳</caption>
+        <tr>
+            <td rowspan="4">A</td><td colspan="2">B</td><td>E</td>
+        </tr>
+        <tr>
+            <td>B</td><td colspan="2">E</td>
+        </tr>
+        <tr>
+            <td colspan="3">C</td>
+        </tr>
+        <tr>
+            <td>B</td><td>C</td><td>E</td>
+        </tr>
+    </table>
+    <br><hr><br>
+    <ol>
+        <li>멜론</li>
+        <li>복숭아</li>
+        <li>수박</li>
+        <li>참외</li>
+        <li>딸기</li>
+        <li>블루베리</li>
+    </ol>
+    <dl>
+        <dt>WWW</dt>
+        <dd>-World Wide Web</dd>
+        <dt>STS</dt>
+        <dd>-Spring Tool Suite</dd>
+        <dt>IDE</dt>
+        <dd>-Integrated Development Environment</dd>
+    </dl>
+</body>
+<script>
+    alert('안녕하세요?');
+</script>
+</html>

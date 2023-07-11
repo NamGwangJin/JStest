@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+div {
+    width:200px; height:150px; background-color:aqua; font-weight:bold; font-size:5rem; text-align:center;
+}
+</style>
+<body>
+    <table>
+        <tr><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document)
+.on('mouseenter','div',function(){
+    $(this).html($(this).index('div'));
+})
+.on('mouseleave','div',function(){
+    $(this).html('');
+})
+</script>
+</html>

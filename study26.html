@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userid" name="username" value="">
+    <label id="lblUser" style="display:none;background-color: yellow;color:red;">사용자 아이디를 입력하시오</label>
+    <br><br>
+    <input type="button" id="btnCheck" value="Check">
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document)
+    // .ready(function(){
+    //     console.log('type='+$('#userid').prop('type'));
+    //     console.log('name='+$('#userid').prop('name'));
+    //     console.log('id='+$('#userid').prop('id'));
+    //     console.log('value='+$('#userid').prop('value'));
+    //     setTimeout(function(){
+    //         $('#userid').prop('type','button');
+    //         setTimeout(function(){
+    //             $('#userid').toggle(); //==document.getElementById('userid').style='display:none';
+    //             setTimeout(function(){
+    //                 $('#userid').toggle();
+    //             },2000)
+    //         },2000)
+    //     },2000);
+    // })
+    .on('click','#btnCheck',function(){
+        if($('#userid').val()=='' || $('#userid').val()==null) {
+            $('#lblUser').fadeIn();
+            setTimeout(function(){
+                $('#lblUser').fadeOut();
+            },2000)
+        }
+    })
+</script>
+</html>

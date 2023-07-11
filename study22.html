@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width:50px;height:50px;border:1px solid gray; text-align:center; font-weight:bold;
+    }
+    .bgRed {
+        background-color:red;
+    }
+    .bdBlack {
+        border: 2px solid black;
+    }
+</style>
+<body>
+<table>
+    <tr>
+        <td><div></div></td>
+        <td><div></div></td>
+        <td><div></div></td>
+        <td><div></div></td>
+        <td><div></div></td>
+        <td><div></div></td>
+        <td><div></div></td>
+        <td><div></div></td>
+        <td><div></div></td>
+        <td><div></div></td>
+    </tr>
+</table>
+</body>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+    let num=1;
+    $(document)
+    .on('click','div',function(){
+        $('div').text('');
+        $(this).text(num);
+        num+=1;
+    })
+    ;
+</script>
+</html>

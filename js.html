@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT TRANING</title>
+</head>
+<body>
+</body>
+<script>
+// let score = prompt("점수를 입력하세요.");
+// score = parseInt(score);
+// if (score>100 || score<0) {
+//     document.write("0~100사이 점수만 입력해주세요.")
+// } else if (score==100) {
+//     document.write("점수 : "+score+"<br>등급 : A+");
+// } else if (score>=90) {
+//     document.write("점수 : "+score+"<br>등급 : A");
+// } else if (score>=80) {
+//     document.write("점수 : "+score+"<br>등급 : B");
+// } else if (score>=70) {
+//     document.write("점수 : "+score+"<br>등급 : C")
+// } else if (score>=60) {
+//     document.write("점수 : "+score+"<br>등급 : D")
+// } else {
+//     document.write("점수 : "+score+"<br>등급 : F")
+// }
+
+// let a = parseFloat(prompt("첫번째 값을 입력하세요."));
+// let b = parseFloat(prompt("두번째 값을 입력하세요."));
+// document.write(a+"+"+b+"="+(a+b)+"<br>"+
+//                a+"-"+b+"="+(a-b)+"<br>"+
+//                a+"X"+b+"="+(a*b)+"<br>"+
+//                a+"/"+b+"="+(a/b)+"<br>"+
+//                a+"%"+b+"="+(a%b));
+
+// let a=2;
+// while (a<10) {
+//     let b=1;
+//     document.write("--------"+a+"단--------<br>")
+//     while(b<10){
+//         document.write(a+"X"+b+"="+a*b+"<br>");
+//         b++;
+//     }
+//     a++;
+// }
+
+// let a=0, b=1, fibo=a+b;
+// while (fibo<=1000){
+//     document.write(fibo+"<br>");
+//     a=b;
+//     b=fibo;
+//     fibo=a+b;
+// }
+
+// for (let a=2;a<10;a++) {
+//     document.write("--------"+a+"단--------<br>")
+//     for (let b=1;b<10;b++) {
+//         document.write(a+"X"+b+"="+a*b+"<br>");
+//     }
+// }
+
+// let ar = ['hi','media','java','web','developer']
+// for (let ndx=0; ndx<ar.length; ndx++) {
+//     document.write(ar[ndx]+"<br>");
+// }
+
+// let arMenu = [];
+// let arPrice = [];
+// while(true) {
+// let name = prompt("메뉴명을 입력하시오. (취소: 종료)");
+// if (name==null) break;
+// arMenu.push(name);
+// let price = prompt(name+"의 가격을 입력하시오.")
+// arPrice.push(price);
+// }
+// for(let i=0; i<arMenu.length; i++){
+//     document.write(arMenu[i]+" "+arPrice[i]+"원<br>");
+// }
+// document.write("<br>프로그램 종료");
+
+// let ar = [14,-1,15,27,4,3,-14,24];
+
+// document.write("오름차순 정렬 전 : [ "+ar.join(' , ')+" ]<br>")
+
+// for (let ndx=0; ndx<ar.length; ndx++) {
+//     for(let x=ndx+1; x<ar.length; x++){
+//         if (ar[ndx]>ar[x]){
+//             let temp=ar[ndx];
+//             ar[ndx]=ar[x];
+//             ar[x]=temp;
+//         }
+//     }
+// }
+// document.write("오름차순 정렬 후 : ["+ar.join(' , ')+"]<br>")
+
+// let ar = [];
+// let num = prompt("값을 입력하세요.")
+// while(num!=''){
+//     num=parseInt(num);
+//     if(ar.length==0){
+//         ar.push(num);
+//     } else {
+//         let ndx;
+//         for(ndx=0; ndx<ar.length; ndx++){
+//             if(num<ar[ndx]){
+//                 ar.splice(ndx,0,num);
+//                 console.log(ar.toString());
+//                 break;
+//             }
+//         }
+//         if(ndx==ar.length){
+//             ar.push(num);
+//         }
+//     }
+//     console.log('ar='+ar.toString());
+//     num = prompt("값을 입력하세요.")
+// }
+// document.write(ar.join(',')+"<br>프로그램 종료");
+
+// let ar=[];
+// let v = prompt("값");
+// while(v!='') {
+//     v=parseInt(v);
+//     for(i=0; i<ar.length; i++) {
+//         if(v < ar[i]) break;
+//     }
+//     if(i==ar.length) ar.push(v);
+//     else ar.splice(i,0,v);
+//     v=prompt("값");
+// }
+// document.write(ar.join(','));
+
+// let arDay=['일','월','화','수','목','금','토'];
+// let someTime = new Date(1998,2,4,0,0,0);
+// let ndx=someTime.getDay();
+// document.write(arDay[ndx]+"요일<br>");
+
+// let anytime = new Date();
+// anytime.setFullYear(2023);
+// anytime.setMonth(11);
+// anytime.setDate(31);
+// anytime.setHours(10);
+// anytime.setMinutes(20);
+// anytime.setSeconds(50);
+// document.write(anytime);
+
+// let today = new Date();
+// let myday = new Date(2023,4,2);
+// let n=today.getTime()-myday.getTime();
+// let d = n / (1000*60*60*24);
+// document.write(d+"일");
+
+// let ar = ['hello','world','good','morning','vietnam'];
+// let x = [];
+// for (x in ar) {
+//     document.write(ar[x]+"<br>");
+// }
+</script>
+</html>
